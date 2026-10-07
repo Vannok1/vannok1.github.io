@@ -1,0 +1,68 @@
+// Beer styles. Colours come from Beer–Lambert absorption (sigma, 1/m for R,G,B) through a
+// ~7.5 cm glass, which is how real beer colour (SRM/EBC) is defined.
+export const BEERS = [
+  {
+    id: 'lager',
+    name: { ru: 'Светлое', en: 'Lager' },
+    sigma: [3.6, 19, 66],
+    haze: 0.03,
+    hazeColor: [1.0, 0.86, 0.48],
+    foam: [1.0, 0.95, 0.83],
+    foamWet: [0.93, 0.80, 0.48],
+    foamCell: 0.0006,
+    foamTau: 120,
+    foaminess: 1.0,
+    bubbleVis: 1.0,
+    settle: 7,
+    nitro: false,
+  },
+  {
+    id: 'wheat',
+    name: { ru: 'Пшеничное', en: 'Wheat' },
+    sigma: [3.2, 14, 48],
+    haze: 0.78,
+    hazeColor: [0.96, 0.64, 0.22],
+    foam: [1.0, 0.975, 0.9],
+    foamWet: [0.95, 0.86, 0.6],
+    foamCell: 0.00045,
+    foamTau: 190,
+    foaminess: 1.15,
+    bubbleVis: 0.75,
+    settle: 9,
+    nitro: false,
+  },
+  {
+    id: 'amber',
+    name: { ru: 'Янтарный эль', en: 'Amber ale' },
+    sigma: [10, 34, 80],
+    haze: 0.07,
+    hazeColor: [0.95, 0.62, 0.3],
+    foam: [1.0, 0.93, 0.8],
+    foamWet: [0.85, 0.6, 0.32],
+    foamCell: 0.0005,
+    foamTau: 105,
+    foaminess: 0.95,
+    bubbleVis: 0.9,
+    settle: 7,
+    nitro: false,
+  },
+  {
+    id: 'stout',
+    name: { ru: 'Стаут', en: 'Stout' },
+    sigma: [62, 100, 140],
+    haze: 0.0,
+    hazeColor: [0.72, 0.56, 0.4],
+    foam: [0.93, 0.83, 0.66],
+    foamWet: [0.5, 0.33, 0.2],
+    foamCell: 0.0003,
+    foamTau: 420,
+    foaminess: 1.15,
+    bubbleVis: 0.22,
+    settle: 45,
+    nitro: true,
+  },
+];
+
+export function beerById(id) {
+  return BEERS.find((b) => b.id === id) || BEERS[0];
+}
